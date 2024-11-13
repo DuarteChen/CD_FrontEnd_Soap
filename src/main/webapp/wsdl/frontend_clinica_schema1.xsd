@@ -1,0 +1,26 @@
+<xs:schema xmlns:tns="http://default_package/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://default_package/" version="1.0">
+  <xs:element name="listarConsultas_Server" type="tns:listarConsultas_Server"/>
+  <xs:element name="listarConsultas_ServerResponse" type="tns:listarConsultas_ServerResponse"/>
+  <xs:complexType name="listarConsultas_Server">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarConsultas_ServerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NotBoundException" type="tns:NotBoundException"/>
+  <xs:complexType name="NotBoundException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MalformedURLException" type="tns:MalformedURLException"/>
+  <xs:complexType name="MalformedURLException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
