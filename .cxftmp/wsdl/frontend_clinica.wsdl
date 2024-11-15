@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions name="FrontEnd_ClinicaService" targetNamespace="http://default_package/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://default_package/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<wsdl:definitions name="FrontEnd_ClinicaService" targetNamespace="http://default_package/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://default_package/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <wsdl:types>
-    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
   <import namespace="http://default_package/" schemaLocation="frontend_clinica_schema1.xsd"/>
 </schema>
   </wsdl:types>
   <wsdl:message name="marcarConsultas_ServerResponse">
     <wsdl:part name="parameters" element="tns:marcarConsultas_ServerResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listarClinicas_ServerResponse">
-    <wsdl:part name="parameters" element="tns:listarClinicas_ServerResponse">
-    </wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="listarClinicas_Server">
-    <wsdl:part name="parameters" element="tns:listarClinicas_Server">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="NotBoundException">
@@ -38,16 +30,6 @@
     </wsdl:part>
   </wsdl:message>
   <wsdl:portType name="FrontEnd_Clinica">
-    <wsdl:operation name="listarClinicas_Server">
-      <wsdl:input name="listarClinicas_Server" message="tns:listarClinicas_Server">
-    </wsdl:input>
-      <wsdl:output name="listarClinicas_ServerResponse" message="tns:listarClinicas_ServerResponse">
-    </wsdl:output>
-      <wsdl:fault name="MalformedURLException" message="tns:MalformedURLException">
-    </wsdl:fault>
-      <wsdl:fault name="NotBoundException" message="tns:NotBoundException">
-    </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="marcarConsultas_Server">
       <wsdl:input name="marcarConsultas_Server" message="tns:marcarConsultas_Server">
     </wsdl:input>
@@ -71,21 +53,6 @@
   </wsdl:portType>
   <wsdl:binding name="FrontEnd_ClinicaServiceSoapBinding" type="tns:FrontEnd_Clinica">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="listarClinicas_Server">
-      <soap:operation soapAction="" style="document"/>
-      <wsdl:input name="listarClinicas_Server">
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="listarClinicas_ServerResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-      <wsdl:fault name="MalformedURLException">
-        <soap:fault name="MalformedURLException" use="literal"/>
-      </wsdl:fault>
-      <wsdl:fault name="NotBoundException">
-        <soap:fault name="NotBoundException" use="literal"/>
-      </wsdl:fault>
-    </wsdl:operation>
     <wsdl:operation name="marcarConsultas_Server">
       <soap:operation soapAction="" style="document"/>
       <wsdl:input name="marcarConsultas_Server">
@@ -119,7 +86,7 @@
   </wsdl:binding>
   <wsdl:service name="FrontEnd_ClinicaService">
     <wsdl:port name="FrontEnd_ClinicaPort" binding="tns:FrontEnd_ClinicaServiceSoapBinding">
-      <soap:address location="http://localhost:8080/CD_FrontEnd_Soap/services"/>
+      <soap:address location="http://localhost:9090/FrontEnd_ClinicaPort"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

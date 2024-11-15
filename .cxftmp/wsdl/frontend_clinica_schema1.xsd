@@ -1,18 +1,8 @@
 <xs:schema xmlns:tns="http://default_package/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://default_package/" version="1.0">
-  <xs:element name="listarClinicas_Server" type="tns:listarClinicas_Server"/>
-  <xs:element name="listarClinicas_ServerResponse" type="tns:listarClinicas_ServerResponse"/>
   <xs:element name="listarConsultas_Server" type="tns:listarConsultas_Server"/>
   <xs:element name="listarConsultas_ServerResponse" type="tns:listarConsultas_ServerResponse"/>
   <xs:element name="marcarConsultas_Server" type="tns:marcarConsultas_Server"/>
   <xs:element name="marcarConsultas_ServerResponse" type="tns:marcarConsultas_ServerResponse"/>
-  <xs:complexType name="listarClinicas_Server">
-    <xs:sequence/>
-  </xs:complexType>
-  <xs:complexType name="listarClinicas_ServerResponse">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="return" type="xs:string"/>
-    </xs:sequence>
-  </xs:complexType>
   <xs:complexType name="marcarConsultas_Server">
     <xs:sequence>
       <xs:element name="arg0" type="xs:int"/>
