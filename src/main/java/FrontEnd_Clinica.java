@@ -11,12 +11,16 @@ import javax.jws.WebService;
 public class FrontEnd_Clinica {
 	
 	
+	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer"; //Duarte
+	//String addServerURL = "rmi://" + "192.168.56.101" + "/AddServer"; //Akash
+	
+	
 
     public String listarConsultas_Server(int idClient) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
+    	
     	String idClicentString = "" + idClient;
   
         
@@ -28,7 +32,7 @@ public class FrontEnd_Clinica {
     public String marcarConsultas_Server(int dia, int mes, int ano, int hora, int clientID, int clinicaID, int especialidadeID) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
+    	
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
     	
   
@@ -42,7 +46,7 @@ public class FrontEnd_Clinica {
     public String listarClinicas_Server() throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
+    	
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
     	
   
@@ -55,7 +59,7 @@ public class FrontEnd_Clinica {
     public String listarEspecialidades_Server(int idClinica) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
+   
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
     	
   
@@ -68,7 +72,7 @@ public class FrontEnd_Clinica {
     public String removerConsulta_Server(int idConsulta) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "999999" + "/AddServer";
+  
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
     	
   
