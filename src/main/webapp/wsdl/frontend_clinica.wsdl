@@ -5,12 +5,28 @@
   <import namespace="http://default_package/" schemaLocation="frontend_clinica_schema1.xsd"/>
 </schema>
   </wsdl:types>
+  <wsdl:message name="listarEspecialidades_Server">
+    <wsdl:part name="parameters" element="tns:listarEspecialidades_Server">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="listarEspecialidades_ServerResponse">
+    <wsdl:part name="parameters" element="tns:listarEspecialidades_ServerResponse">
+    </wsdl:part>
+  </wsdl:message>
   <wsdl:message name="marcarConsultas_ServerResponse">
     <wsdl:part name="parameters" element="tns:marcarConsultas_ServerResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="listarClinicas_ServerResponse">
     <wsdl:part name="parameters" element="tns:listarClinicas_ServerResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerConsulta_Server">
+    <wsdl:part name="parameters" element="tns:removerConsulta_Server">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="removerConsulta_ServerResponse">
+    <wsdl:part name="parameters" element="tns:removerConsulta_ServerResponse">
     </wsdl:part>
   </wsdl:message>
   <wsdl:message name="listarClinicas_Server">
@@ -48,10 +64,30 @@
       <wsdl:fault name="NotBoundException" message="tns:NotBoundException">
     </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="listarEspecialidades_Server">
+      <wsdl:input name="listarEspecialidades_Server" message="tns:listarEspecialidades_Server">
+    </wsdl:input>
+      <wsdl:output name="listarEspecialidades_ServerResponse" message="tns:listarEspecialidades_ServerResponse">
+    </wsdl:output>
+      <wsdl:fault name="MalformedURLException" message="tns:MalformedURLException">
+    </wsdl:fault>
+      <wsdl:fault name="NotBoundException" message="tns:NotBoundException">
+    </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="marcarConsultas_Server">
       <wsdl:input name="marcarConsultas_Server" message="tns:marcarConsultas_Server">
     </wsdl:input>
       <wsdl:output name="marcarConsultas_ServerResponse" message="tns:marcarConsultas_ServerResponse">
+    </wsdl:output>
+      <wsdl:fault name="MalformedURLException" message="tns:MalformedURLException">
+    </wsdl:fault>
+      <wsdl:fault name="NotBoundException" message="tns:NotBoundException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerConsulta_Server">
+      <wsdl:input name="removerConsulta_Server" message="tns:removerConsulta_Server">
+    </wsdl:input>
+      <wsdl:output name="removerConsulta_ServerResponse" message="tns:removerConsulta_ServerResponse">
     </wsdl:output>
       <wsdl:fault name="MalformedURLException" message="tns:MalformedURLException">
     </wsdl:fault>
@@ -86,12 +122,42 @@
         <soap:fault name="NotBoundException" use="literal"/>
       </wsdl:fault>
     </wsdl:operation>
+    <wsdl:operation name="listarEspecialidades_Server">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="listarEspecialidades_Server">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="listarEspecialidades_ServerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MalformedURLException">
+        <soap:fault name="MalformedURLException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotBoundException">
+        <soap:fault name="NotBoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
     <wsdl:operation name="marcarConsultas_Server">
       <soap:operation soapAction="" style="document"/>
       <wsdl:input name="marcarConsultas_Server">
         <soap:body use="literal"/>
       </wsdl:input>
       <wsdl:output name="marcarConsultas_ServerResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="MalformedURLException">
+        <soap:fault name="MalformedURLException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="NotBoundException">
+        <soap:fault name="NotBoundException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="removerConsulta_Server">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="removerConsulta_Server">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="removerConsulta_ServerResponse">
         <soap:body use="literal"/>
       </wsdl:output>
       <wsdl:fault name="MalformedURLException">

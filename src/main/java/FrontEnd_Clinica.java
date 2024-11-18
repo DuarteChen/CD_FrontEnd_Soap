@@ -3,6 +3,7 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 
@@ -37,7 +38,7 @@ public class FrontEnd_Clinica {
 
     }
     
-    /*
+    
     public String listarClinicas_Server() throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
@@ -63,6 +64,19 @@ public class FrontEnd_Clinica {
 		return addServerIntf.listarEspecialidades(idClinica);
 
     }
-*/    
+    
+    public String removerConsulta_Server(int idConsulta) throws MalformedURLException, RemoteException, NotBoundException {
+    	   
+    	
+    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
+    	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
+    	
+  
+        
+
+		return addServerIntf.removerConsulta(idConsulta);
+
+    }
+
     
 }
