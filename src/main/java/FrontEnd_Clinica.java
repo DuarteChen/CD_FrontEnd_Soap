@@ -68,7 +68,7 @@ public class FrontEnd_Clinica {
     public String removerConsulta_Server(int idConsulta) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
-    	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer";
+    	String addServerURL = "rmi://" + "999999" + "/AddServer";
     	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
     	
   
