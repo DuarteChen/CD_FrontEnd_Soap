@@ -8,6 +8,8 @@ import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
@@ -89,33 +91,54 @@ public class FrontEnd_Clinica {
     }
     
     public String Registar(String userName, String password) throws IOException {
-        // Caminho para o arquivo onde os usuários serão salvos
+        // Path to the file where users will be saved
         File file = new File("C:\\Users\\akash\\Desktop\\DadosUser.txt");
 
-        // Se o arquivo não existir, cria o arquivo
+        // Create the file if it does not exist
         if (!file.exists()) {
-            boolean created = file.createNewFile(); // Cria o arquivo se não existir
+            boolean created = file.createNewFile();
             if (!created) {
                 throw new IOException("Erro ao criar o arquivo DadosUser.txt");
             }
         }
 
-        // Verificar se o usuário já existe
+        // Check if the user already exists
         if (usuarioExiste(userName)) {
             return "Usuário já existe!";
         } else {
-            // Obter o próximo ID
+            // Generate the hashed password
+            String hashedPassword = hashPassword(password);
+
+            // Get the next ID
             int nextId = getNextId(file);
 
-            // Escrever o novo usuário no arquivo com o ID
+            // Write the new user to the file
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
-                writer.write(nextId + ":" + userName + ":" + password); // Salva o usuário no formato id:userName:password
-                writer.newLine(); // Adiciona uma nova linha
+                writer.write(nextId + ":" + userName + ":" + hashedPassword); // Save the user in id:userName:hashedPassword format
+                writer.newLine();
             }
             return "Usuário registrado com sucesso!";
         }
     }
 
+    // Method to hash a password using SHA-256
+    private String hashPassword(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] encodedHash = digest.digest(password.getBytes());
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : encodedHash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException("Erro ao gerar hash da senha", e);
+        }
+    }
     // Método para verificar se o usuário já existe
     private boolean usuarioExiste(String userName) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader("\"C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) {
@@ -154,24 +177,27 @@ public class FrontEnd_Clinica {
     
     
     public String autenticar(String userName, String password) throws IOException {
-        // Lê o arquivo e verifica se o usuário e a senha correspondem
-        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\akash\\Desktop\\DadosUser.txt"))) {
+        // Read the file and verify if the username and hashed password match
+        try (BufferedReader reader = new BufferedReader(new FileReader("\"C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt\""))) {
             String line;
+            String hashedPassword = hashPassword(password); // Hash the input password for comparison
+
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(":");
-                String storedId = parts[0]; // O ID está no primeiro campo
-                String storedUserName = parts[1]; // O username está no segundo campo
-                String storedPassword = parts[2]; // A senha está no terceiro campo
+                String storedId = parts[0];
+                String storedUserName = parts[1];
+                String storedPassword = parts[2];
 
-                // Se o username e a senha corresponderem
-                if (storedUserName.equals(userName) && storedPassword.equals(password)) {
-                    return storedId; // Retorna o ID do usuário autenticado
+                // If the username and hashed password match
+                if (storedUserName.equals(userName) && storedPassword.equals(hashedPassword)) {
+                    return storedId; // Return the ID of the authenticated user
                 }
             }
         }
-        System.out.println("Credenciais errado");
-        return "0"; // Nome de usuário ou senha inválidos, retorna null
+        System.out.println("Credenciais erradas");
+        return "0"; // Invalid username or password
     }
+
 
 
     
