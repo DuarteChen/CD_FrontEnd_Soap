@@ -1,7 +1,6 @@
 
 package defaultnamespace.jaxws;
 
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -13,11 +12,11 @@ import javax.xml.bind.annotation.XmlType;
  * Generated source version: 3.6.4
  */
 
-@XmlRootElement(name = "MalformedURLException", namespace = "http://net.java/")
+@XmlRootElement(name = "IOException", namespace = "http://io.java/")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "MalformedURLException", namespace = "http://net.java/")
+@XmlType(name = "IOException", namespace = "http://io.java/")
 
-public class MalformedURLExceptionBean {
+public class IOExceptionBean {
 
     private java.lang.String message;
 
@@ -30,3 +29,4 @@ public class MalformedURLExceptionBean {
     }
 
 }
+

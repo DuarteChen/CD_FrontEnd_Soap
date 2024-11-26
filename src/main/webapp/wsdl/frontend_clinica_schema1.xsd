@@ -1,4 +1,8 @@
 <xs:schema xmlns:tns="http://default_package/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://default_package/" version="1.0">
+  <xs:element name="Registar" type="tns:Registar"/>
+  <xs:element name="RegistarResponse" type="tns:RegistarResponse"/>
+  <xs:element name="autenticar" type="tns:autenticar"/>
+  <xs:element name="autenticarResponse" type="tns:autenticarResponse"/>
   <xs:element name="listarClinicas_Server" type="tns:listarClinicas_Server"/>
   <xs:element name="listarClinicas_ServerResponse" type="tns:listarClinicas_ServerResponse"/>
   <xs:element name="listarConsultas_Server" type="tns:listarConsultas_Server"/>
@@ -9,6 +13,26 @@
   <xs:element name="marcarConsultas_ServerResponse" type="tns:marcarConsultas_ServerResponse"/>
   <xs:element name="removerConsulta_Server" type="tns:removerConsulta_Server"/>
   <xs:element name="removerConsulta_ServerResponse" type="tns:removerConsulta_ServerResponse"/>
+  <xs:complexType name="listarEspecialidades_Server">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="listarEspecialidades_ServerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removerConsulta_Server">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removerConsulta_ServerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="listarClinicas_Server">
     <xs:sequence/>
   </xs:complexType>
@@ -17,12 +41,13 @@
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEspecialidades_Server">
+  <xs:complexType name="autenticar">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="listarEspecialidades_ServerResponse">
+  <xs:complexType name="autenticarResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
@@ -43,12 +68,13 @@
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="removerConsulta_Server">
+  <xs:complexType name="Registar">
     <xs:sequence>
-      <xs:element name="arg0" type="xs:int"/>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="removerConsulta_ServerResponse">
+  <xs:complexType name="RegistarResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>
@@ -71,6 +97,12 @@
   </xs:complexType>
   <xs:element name="MalformedURLException" type="tns:MalformedURLException"/>
   <xs:complexType name="MalformedURLException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IOException" type="tns:IOException"/>
+  <xs:complexType name="IOException">
     <xs:sequence>
       <xs:element minOccurs="0" name="message" type="xs:string"/>
     </xs:sequence>
