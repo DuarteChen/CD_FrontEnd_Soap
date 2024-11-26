@@ -92,7 +92,7 @@ public class FrontEnd_Clinica {
     
     public String Registar(String userName, String password) throws IOException {
         // Path to the file where users will be saved
-        File file = new File("C:\\Users\\akash\\Desktop\\DadosUser.txt");
+        File file = new File("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt");
 
         // Create the file if it does not exist
         if (!file.exists()) {
@@ -141,7 +141,7 @@ public class FrontEnd_Clinica {
     }
     // Método para verificar se o usuário já existe
     private boolean usuarioExiste(String userName) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader("\"C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 // Verificar se o nome de usuário já existe (compara apenas o nome do usuário antes dos dois pontos)
@@ -178,7 +178,7 @@ public class FrontEnd_Clinica {
     
     public String autenticar(String userName, String password) throws IOException {
         // Read the file and verify if the username and hashed password match
-        try (BufferedReader reader = new BufferedReader(new FileReader("\"C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt\""))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) {
             String line;
             String hashedPassword = hashPassword(password); // Hash the input password for comparison
 
