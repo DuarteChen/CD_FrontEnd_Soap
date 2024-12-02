@@ -22,6 +22,10 @@ public class FrontEnd_Clinica {
 	//String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer"; //Duarte
 	String addServerURL = "rmi://" + "192.168.56.101" + "/AddServer"; //Akash
 	
+	String fileData = "C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"; //AKASH
+	//String file = "/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"; //DUARTE
+	
+	
 	
 
     public String listarConsultas_Server(int idClient) throws MalformedURLException, RemoteException, NotBoundException {
@@ -92,8 +96,7 @@ public class FrontEnd_Clinica {
     
     public String Registar(String userName, String password) throws IOException {
         // Path to the file where users will be saved
-        //File file = new File("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"); //---- Mudar localização do ficheiro ----
-        File file = new File("/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"); //---- Mudar localização do ficheiro ----
+        File file = new File(fileData); //---- Mudar localização do ficheiro ----
         
 
         // Create the file if it does not exist
@@ -143,8 +146,7 @@ public class FrontEnd_Clinica {
     }
     // Método para verificar se o usuário já existe
     private boolean usuarioExiste(String userName) throws IOException {
-        //try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) { //---- Mudar localização do ficheiro ----
-    	try (BufferedReader reader = new BufferedReader(new FileReader("/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"))) { //---- Mudar localização do ficheiro ----
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileData))) { //---- Mudar localização do ficheiro ----
         	
         	
         	String line;
@@ -184,8 +186,7 @@ public class FrontEnd_Clinica {
     public String autenticar(String userName, String password) throws IOException {
         // Read the file and verify if the username and hashed password match
         
-    	//try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"))) { //---- Mudar localização do ficheiro ----
-    	try (BufferedReader reader = new BufferedReader(new FileReader("/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"))) { //---- Mudar localização do ficheiro ----
+    	try (BufferedReader reader = new BufferedReader(new FileReader(fileData))) { //---- Mudar localização do ficheiro ----
         
     		String line;
             String hashedPassword = hashPassword(password); // Hash the input password for comparison
