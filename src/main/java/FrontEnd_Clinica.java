@@ -81,7 +81,7 @@ public class FrontEnd_Clinica {
 
     }
     
-    public String removerConsulta_Server(int idConsulta) throws MalformedURLException, RemoteException, NotBoundException {
+    public String removerConsulta_Server(int idConsulta,int idClient) throws MalformedURLException, RemoteException, NotBoundException {
     	   
     	
   
@@ -90,7 +90,7 @@ public class FrontEnd_Clinica {
   
         
 
-		return addServerIntf.removerConsulta(idConsulta);
+		return addServerIntf.removerConsulta(idConsulta,idClient);
 
     }
     
