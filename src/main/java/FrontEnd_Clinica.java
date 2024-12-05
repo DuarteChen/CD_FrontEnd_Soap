@@ -19,11 +19,11 @@ import javax.jws.WebService;
 public class FrontEnd_Clinica {
 	
 	
-	//String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer"; //Duarte
-	String addServerURL = "rmi://" + "192.168.56.101" + "/AddServer"; //Akash
+	String addServerURL = "rmi://" + "192.168.128.2" + "/AddServer"; //Duarte
+	//String addServerURL = "rmi://" + "192.168.56.101" + "/AddServer"; //Akash
 	
-	String fileData = "C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"; //AKASH
-	//String file = "/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"; //DUARTE
+	//String fileData = "C:\\Users\\akash\\eclipse-workspace\\CD_FrontEnd_Soap\\DadosUser.txt"; //AKASH
+	String fileData = "/Users/duartechen/eclipse-workspace/CD_FrontEnd_Soap/DadosUser.txt"; //DUARTE
 	
 	
 	
