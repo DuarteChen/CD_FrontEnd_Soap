@@ -9,6 +9,8 @@
   <xs:element name="listarConsultas_ServerResponse" type="tns:listarConsultas_ServerResponse"/>
   <xs:element name="listarEspecialidades_Server" type="tns:listarEspecialidades_Server"/>
   <xs:element name="listarEspecialidades_ServerResponse" type="tns:listarEspecialidades_ServerResponse"/>
+  <xs:element name="locClinica_Server" type="tns:locClinica_Server"/>
+  <xs:element name="locClinica_ServerResponse" type="tns:locClinica_ServerResponse"/>
   <xs:element name="marcarConsultas_Server" type="tns:marcarConsultas_Server"/>
   <xs:element name="marcarConsultas_ServerResponse" type="tns:marcarConsultas_ServerResponse"/>
   <xs:element name="removerConsulta_Server" type="tns:removerConsulta_Server"/>
@@ -19,6 +21,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarEspecialidades_ServerResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="locClinica_Server">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="locClinica_ServerResponse">
     <xs:sequence>
       <xs:element minOccurs="0" name="return" type="xs:string"/>
     </xs:sequence>

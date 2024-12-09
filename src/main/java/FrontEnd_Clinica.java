@@ -206,6 +206,21 @@ public class FrontEnd_Clinica {
         System.out.println("Credenciais erradas");
         return "0"; // Invalid username or password
     }
+    
+public String locClinica_Server(int idClinica) throws MalformedURLException, RemoteException, NotBoundException {
+    	   
+    	
+    	//mapa
+		
+		String idClinicaString = idClinica + "";
+    	
+    	AddServerIntf addServerIntf = (AddServerIntf)Naming.lookup(addServerURL);
+    	
+        
+
+		return addServerIntf.locClinica(idClinicaString);
+
+    }
 
 
 
